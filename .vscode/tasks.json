@@ -7,12 +7,17 @@
     },
     "tasks": [
         {
-            "label": "gcc build",
+            "label": "c main build",
             "type": "shell",
             "command": "gcc -g -o main main.c -lm -ldl"
         }, 
         {
-            "label": "gcc lib build",
+            "label": "c++ main build",
+            "type": "shell",
+            "command": "g++ -g -o maincpp main.cpp"
+        }, 
+        {
+            "label": "lib build",
             "type": "shell",
             "command": "gcc -g  ./lib/libtest.c -fPIC -shared -o ./lib/libtest.so"
         },

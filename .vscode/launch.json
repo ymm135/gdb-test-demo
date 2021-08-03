@@ -5,7 +5,26 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "(gdb) Launch",
+            "name": "c++ debug",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/maincpp",
+            "args": [],
+            "stopAtEntry": false,
+            "cwd": "${fileDirname}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "gdb",
+            "setupCommands": [
+                {
+                    "description": "为 gdb 启用整齐打印",
+                    "text": "-enable-pretty-printing",
+                    "ignoreFailures": true
+                }
+            ]
+        },
+        {
+            "name": "c debug",
             "type": "cppdbg",
             "request": "launch",
             "program": "${workspaceFolder}/main",
@@ -29,7 +48,8 @@
             ],
             "sourceFileMap":{
                 "/build/glibc-S9d2JN": "/usr/src/glibc" //需要下载glibc的源码文件，修改这里的配置
-            }
+            },
+            "preLaunchTask": "main build"
         }
     ]
 }

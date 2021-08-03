@@ -24,7 +24,7 @@ void forkexample()
     printf("Hello from Child(pid=%d)!\n", getpid());
 
     //测试子进程加载so库gdb是否可以设置断点
-    loadAndCallSoFile(100 , 120);
+    loadAndCallSoFile(100, 120);
   }
   else
     printf("Hello from Parent(pid=%d)!\n", getpid());
@@ -59,6 +59,7 @@ void loadAndCallSoFile(int x, int y)
   printf("%d + %d =%d\n", x, y, pSum(x, y));
 }
 
+
 int main(int argc, char **argv)
 {
 
@@ -70,11 +71,10 @@ int main(int argc, char **argv)
   int *primes = getPrimes(n);
 
   //主进程动态加载so文件,可以设置断点调试
-  loadAndCallSoFile(5 , 7);
+  loadAndCallSoFile(5, 7);
 
   //测试多进程gdb是否可以设置断点
   forkexample();
- 
 
   int s = sum(primes, n);
   printf("The sum of the first %d primes is %d\n", n, s);
@@ -126,7 +126,9 @@ int isPrime(int x)
   {
     return 0;
   }
-  for (int i = 3; i <= sqrt(x); i += 2)
+
+  int i;
+  for (i = 3; i <= sqrt(x); i += 2)
   {
     if (x % i == 0)
     {
